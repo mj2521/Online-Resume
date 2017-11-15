@@ -1,4 +1,4 @@
-var DATA = '%data%';
+
 
 var bio = {
   name: 'Marquita Tosen',
