@@ -15,7 +15,7 @@ var bio = {
                   'to form a mutually beneficial relationship with a telecommunications provider .',
   skills: ['HTML', 'CSS', 'JavaScript', 'Web Applications', 'Git', 'Python', 'Microsoft Office,' +
           'Project Management' , 'Network Operations', 'Technology/IT Consulting', +
-          'Process Management', 'IP Services' , 'Network Operations'
+          'Process Management', 'IP Services' , 'Network Operations']
 
   biopic: 'images/Me.jpg',
   display: function() {
