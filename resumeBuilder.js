@@ -1,180 +1,203 @@
-
 var bio = {
-  name: 'Marquita Tosen',
-  role: 'Senior-Technical Consulting Engineer',
-  contacts: {
-    mobile: '407-294-4047',
-    email: 'marquita.mondy@gmail.com',
-    github: 'mj2521'
-    location: 'Orlando, Florida'
-  },
-  welcomeMessage: 'Senior-Technical Consulting Engineer located in Orlando, Florida' +
-                  'Subject Matter Expert AT&T Technology products ' +
-                  'Seeking a challenging position in which I can maximize my skills , ' +
-                  'to form a mutually beneficial relationship with a telecommunications provider .',
-  skills: ['HTML', 'CSS', 'JavaScript', 'Web Applications', 'Git', 'Python', 'Microsoft Office,' +
-          'Project Management' , 'Network Operations', 'Technology/IT Consulting', +
-          'Process Management', 'IP Services' , 'Network Operations']
-
-  biopic: 'images/Me.jpg',
-  display: function() {
-    var formattedName = HTMLheaderName.replace(DATA, bio.name);
-    var formattedRole = HTMLheaderRole.replace(DATA, bio.role);
-
-    var formattedMobile = HTMLmobile.replace(DATA, bio.contacts.mobile);
-    var formattedEmail = HTMLemail.replace(DATA, bio.contacts.email);
-    var formattedLocation = HTMLlocation.replace(DATA, bio.contacts.location);
-    var formattedGithub = HTMLgithub.replace(DATA, bio.contacts.github);
-    var formattedBioPic = HTMLbioPic.replace(DATA, bio.biopic);
-    var formattedWelcomeMessage = HTMLwelcomeMsg.replace(DATA, bio.welcomeMessage);
-
-    $('#header').prepend(formattedName + formattedRole);
-    $('#topContacts, #footerContacts').append(formattedMobile + formattedEmail +
-      formattedGithub + formattedTwitter + formattedLocation);
-    $('#header').append(formattedBioPic);
-    $('#header').append(formattedWelcomeMessage);
-
-    if (bio.skills.length > 0) {
-      $('#header').append(HTMLskillsStart);
-
-      for (var i = 0, len = bio.skills.length; i < len; i++) {
-        var formattedSkills = HTMLskills.replace(DATA, bio.skills[i]);
-
-        $('#skills').append(formattedSkills);
-      }
-    }
-  }
+	"name": "Marquita Tosen",
+	"role": "Front-End Developer",
+	"contacts": {
+		"email": "marquita.mondy@gmail.com",
+		"github": "mj2521",
+		"location": "Orlando, Florida, United States"
+	},
+	"picture": "images/me.jpg",
+	"welcomeMessage": "I am a Senior-Technical Consulting Engineer located in Orlando, Florida. Seeking a challenging position in which I can maximize my skills "+
+			  "to form a mutually beneficial relationship with a telecommunications provider .",
+	"skills": ["HTML", "CSS", "JavaScript","Git", "Python", "Microsoft Office", +
+          "Project Management" , "Network Operations", "Technology/IT Consulting", +
+          "Process Management", "IP Services" , "Network Operations"]
 };
 
 var work = {
-  jobs: [
-    {
-      employer: 'AT&T',
-      title: 'Senior Technical Consulting Engineer',
-      location: 'Orlando, Florida',
-      dates: 'May 2001 - Current',
-      description: 'Design, configure and implement customer network infrastructure ' +
-                   'I have technical network knowledge as well as the ability to work with sales to' +
-                   'resolve problems or respond to special customer requests. Responsible for' +
-                   'change proposals based on specialized applications.'
+	"jobs": [
+		{
+			"employer": "AT&T",
+			"title": "Senior Technical Consulting Engineer",
+			"location": "Orlando, Florida, United States",
+			"datesWorked": "May 2001 - Current",
+			"description": "I design, configure and implement customer network infrastructure "+
+				"I have technical network knowledge as well as the ability to work with sales to "+
+				"resolve problems or respond to special customer requests. Responsible for "+
+				"change proposals based on specialized applications. "+
 
-    },
-    {
-      employer: 'NorthPoint Communications',
-      title: 'Transport Supervisor',
-      location: 'San Francisco, CA',
-      dates: 'December 1996 - May 2001',
-      description: 'Design, configure and implement DSL network infrastructure to serve  ' +
-                   'ISP providers. Ordered, engineered, provisioned and tested transport services .' +
+		},
+		{
+			"employer": "NorthPoint Communications",
+			"title": "Transport Supervisor",
+			"location": "San Francisco, California, United States",
+			"datesWorked": "December 1996 - May 2001",
+			"description": "I designed, configured and implemented DSL network infrastructure to serve ISP providers. "+
+				"I have ordered, engineered, provisioned and tested transport services along with managing eight provisioners. "
 
-
-
-    }
-  ],
-  display: function() {
-    if (work.jobs.length > 0) {
-      for (var i = 0, len = work.jobs.length; i < len; i++) {
-        var formattedEmployer = HTMLworkEmployer.replace(DATA, work.jobs[i].employer);
-        var formattedTitle = HTMLworkTitle.replace(DATA, work.jobs[i].title);
-        var formattedDates = HTMLworkDates.replace(DATA, work.jobs[i].dates);
-        var formattedLocation = HTMLworkLocation.replace(DATA, work.jobs[i].location);
-        var formattedDescription = HTMLworkDescription.replace(DATA, work.jobs[i].description);
-        var formattedEmployerTitle = formattedEmployer + formattedTitle;
-
-        $('#workExperience').append(HTMLworkStart);
-        $('.work-entry:last').append(formattedEmployerTitle);
-        $('.work-entry:last').append(formattedDates);
-        $('.work-entry:last').append(formattedLocation);
-        $('.work-entry:last').append(formattedDescription);
-      }
-    }
-  }
-};
-
-var projects = {
-  projects: [
-    {
-      'title': 'Code Your Own Quiz',
-      'dates': 'August 2017',
-      'description': 'Use Phython to code a quiz with proper use of variables, functions  ' +
-                     'and coding techiques. '
-      'images': ['images/notifier-udacity-1.png', 'images/notifier-udacity-2.png']
-    },
-    {
-      'title': 'Creat a Movie Website',
-      'dates': 'August 2017',
-      'description': 'Use Python to Create a Movie Website with the correct Python data structure ' +
-                     ' with proper usage of variables, functions, classes and coding usage.',
-      'images': ['images/css-flexbox-snippets.gif']
-    },
-
-    }
-  ],
-  display: function() {
-    if (projects.projects.length > 0) {
-      for (var i = 0, iLen = projects.projects.length; i < iLen; i++) {
-        var formattedTitle = HTMLprojectTitle.replace(DATA, projects.projects[i].title);
-        var formattedDates = HTMLprojectDates.replace(DATA, projects.projects[i].dates);
-        var formattedDescription = HTMLprojectDescription.replace(DATA, projects.projects[i].description);
-
-        $('#projects').append(HTMLprojectStart);
-        $('.project-entry:last').append(formattedTitle);
-        $('.project-entry:last').append(formattedDates);
-        $('.project-entry:last').append(formattedDescription);
-
-        for (var j = 0, jLen = projects.projects[i].images.length; j < jLen; j++) {
-          var formattedImage = HTMLprojectImage.replace(DATA, projects.projects[i].images[j]);
-
-          $('.project-entry:last').append(formattedImage);
-        }
-      }
-    }
-  }
+		}
+	]
 };
 
 var education = {
-  schools: [
-    {
-      'name': ' University of Phoenix',
-      'location': 'Phoenix, Arizona, United States',
-      'degree': 'Bachelor of Science in Business Management'
-      'dates': '2007 - 2009',
+	"schools": [
+		{ "name": "University of Phoenix Online",
+			"datesAttended": "2004 - 2008",
+			"location": "Orlando, Florida, United States",
+			"degree": "BSBM",
+			"major": "Business Management",
+	    "url": "www.phoenix.edu"
+		},
 
-      'name': ' Lone Star College - North Harris',
-      'location': 'Houston, Texas, United States'
-      'dates': '1993 - 1995',
 
-      'name': ' Valencia College',
-      'location': 'Orlando, Florida, United States'
-      'dates': '1991 - 1992',
-    }
-
-  ],
-  display: function() {
-    if (education.schools.length > 0 || education.onlineCourses.length > 0) {
-      for (var i = 0, iLen = education.schools.length; i < iLen; i++) {
-        var formattedName = HTMLschoolName.replace(DATA, education.schools[i].name);
-        var formattedDegree = HTMLschoolDegree.replace(DATA, education.schools[i].degree);
-        var formattedSchoolDates = HTMLschoolDates.replace(DATA, education.schools[i].dates);
-        var formattedLocation = HTMLschoolLocation.replace(DATA, education.schools[i].location);
-        var formattedNameDegree = formattedName + formattedDegree;
-
-        $('#education').append(HTMLschoolStart);
-        $('.education-entry:last').append(formattedNameDegree);
-        $('.education-entry:last').append(formattedSchoolDates);
-        $('.education-entry:last').append(formattedLocation);
-
-        for (var j = 0, jLen = education.schools[i].majors.length; j < jLen; j++) {
-          var formattedMajor = HTMLschoolMajor.replace(DATA, education.schools[i].majors[j]);
-
-          $('.education-entry:last').append(formattedMajor);
-        }
-      }
-
+	],
+	"onlineCourses": [
+		{ "school": "Udacity",
+			"title": "Intro to Programming Nanodegree",
+			"completed": "December 2017",
+			"url": "https://www.udacity.com"
+		}
+	]
 };
 
+var projects = {
+	"projects": [
+		{
+			"title": "Create a Movie Website",
+			"datesWorked": "August 2017",
+			"description": "Use code create static webpage " +
+			"Nanodegree.",
+			"images": ["images/movie.png"],
+			"url": "file:///Users/shontricejohnson/Desktop/Udacity/fresh_tomatoes.html"
+		}
+	]
+};
+
+
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+var formattedBioPic = HTMLbioPic.replace("%data%", bio.picture);
+var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
+
+var formattedContactInfo = [];
+formattedContactInfo.push(HTMLemail.replace("%data%", bio.contacts.email));
+formattedContactInfo.push(HTMLgithub.replace("%data%", bio.contacts.github));
+formattedContactInfo.push(HTMLlocation.replace("%data%", bio.contacts.location));
+
+
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
+$("#header").append(formattedBioPic);
+$("#header").append(formattedWelcomeMsg);
+
+if(bio.skills.length > 0) {
+	$("#header").append(HTMLskillsStart);
+
+	for(i in bio.skills) {
+		$("#skills").append(HTMLskills.replace("%data%", bio.skills[i]));
+	}
+}
+
+for(i in formattedContactInfo) {
+	$("#topContacts").append(formattedContactInfo[i]);
+	$("#footerContacts").append(formattedContactInfo[i]);
+}
+
+
+function displayWork() {
+
+	if(work.jobs.length > 0) {
+
+		$("#workExperience").append(HTMLworkStart);
+
+		for(i in work.jobs) {
+			var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
+			var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
+			var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[i].location);
+			var formattedDatesWorked = HTMLworkDates.replace("%data%", work.jobs[i].datesWorked);
+			var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
+
+			var formattedEmployerWorkTitle = formattedEmployer + formattedWorkTitle;
+
+			$(".work-entry:last").append(formattedEmployerWorkTitle);
+			$(".work-entry:last").append(formattedWorkLocation);
+			$(".work-entry:last").append(formattedDatesWorked);
+			$(".work-entry:last").append(formattedWorkDescription);
+		}
+
+	}
+
+}
+
+displayWork();
+
+
+projects.display = function() {
+	if(projects.projects.length > 0) {
+		for(i in projects.projects) {
+			$("#projects").append(HTMLprojectStart);
+
+			var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title).replace("#", projects.projects[i].url);
+			var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[i].datesWorked);
+			var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
+
+			$(".project-entry:last").append(formattedProjectTitle);
+			$(".project-entry:last").append(formattedProjectDates);
+			$(".project-entry:last").append(formattedProjectDescription);
+
+			for(img in projects.projects[i].images) {
+				var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[i].images[img]);
+				$(".project-entry:last").append(formattedProjectImage);
+			}
+
+
+		}
+	}
+}
+
+projects.display();
+
+education.display = function() {
+	if(education.schools.length > 0 || education.onlineCourses.length > 0) {
+		for(i in education.schools) {
+			$("#education").append(HTMLschoolStart);
+
+			var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[i].name).replace("#", education.schools[i].url);
+			var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
+			var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[i].datesAttended);
+			var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[i].location);
+			var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[i].major);
+			var formattedSchoolMinor = HTMLschoolMinor.replace("%data%", education.schools[i].minor);
+
+			$(".education-entry:last").append(formattedSchoolName + formattedSchoolDegree);
+			$(".education-entry:last").append(formattedSchoolDates);
+			$(".education-entry:last").append(formattedSchoolLocation);
+			$(".education-entry:last").append(formattedSchoolMajor);
+			$(".education-entry:last").append(formattedSchoolMinor);
+		}
+
+		if(education.onlineCourses.length > 0) {
+			$("#education").append(HTMLonlineClasses);
+			for(i in education.onlineCourses) {
+				$("#education").append(HTMLschoolStart);
+				var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title).replace("#", education.onlineCourses[i].url);
+				var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
+				var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[i].completed);
+				var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[i].url).replace("#", education.onlineCourses[i].url);
+
+				$(".education-entry:last").append(formattedOnlineTitle + formattedOnlineSchool);
+				$(".education-entry:last").append(formattedOnlineDates);
+				$(".education-entry:last").append(formattedOnlineURL);
+			}
+		}
+
+	}
+}
+
+education.display();
 bio.display();
 work.display();
 projects.display();
 education.display();
 $('#mapDiv').append(googleMap);
+
