@@ -2,15 +2,16 @@
 	"name": "Marquita Tosen",
 	"role": "Front-End Developer",
 	"contacts": {
+		"mobile": "999-999-9999",
 		"email": "marquita.mondy@gmail.com",
 		"github": "mj2521",
 		"location": "Orlando, Florida, United States"
 	},
-	"picture": "images/me.jpg",
+	"biopic": "images/me.jpg",
 	"welcomeMessage": "I am a Senior-Technical Consulting Engineer located in Orlando, Florida. Seeking a challenging position in which I can maximize my skills "+
 			  "to form a mutually beneficial relationship with a telecommunications provider .",
-	"skills": ["HTML", "CSS", "JavaScript","Git", "Python", "Microsoft Office", +
-          "Project Management" , "Network Operations", "Technology/IT Consulting", +
+	"skills": ["HTML", "CSS", "JavaScript","Git", "Python", "Microsoft Office",
+          "Project Management" , "Network Operations", "Technology/IT Consulting",
           "Process Management", "IP Services" , "Network Operations"]
 };
 
@@ -20,7 +21,7 @@ var work = {
 			"employer": "AT&T",
 			"title": "Senior Technical Consulting Engineer",
 			"location": "Orlando, Florida, United States",
-			"datesWorked": "May 2001 - Current",
+			"dates": "May 2001 - Current",
 			"description": "I design, configure and implement customer network infrastructure "+
 				"I have technical network knowledge as well as the ability to work with sales to "+
 				"resolve problems or respond to special customer requests. Responsible for "+
@@ -31,7 +32,7 @@ var work = {
 			"employer": "NorthPoint Communications",
 			"title": "Transport Supervisor",
 			"location": "San Francisco, California, United States",
-			"datesWorked": "December 1996 - May 2001",
+			"dates": "December 1996 - May 2001",
 			"description": "I designed, configured and implemented DSL network infrastructure to serve ISP providers. "+
 				"I have ordered, engineered, provisioned and tested transport services along with managing eight provisioners. "
 
@@ -42,7 +43,7 @@ var work = {
 var education = {
 	"schools": [
 		{ "name": "University of Phoenix Online",
-			"datesAttended": "2004 - 2008",
+			"dates": "2004 - 2008",
 			"location": "Orlando, Florida, United States",
 			"degree": "BSBM",
 			"major": "Business Management",
@@ -54,7 +55,7 @@ var education = {
 	"onlineCourses": [
 		{ "school": "Udacity",
 			"title": "Intro to Programming Nanodegree",
-			"completed": "December 2017",
+			"dates": "December 2017",
 			"url": "https://www.udacity.com"
 		}
 	]
@@ -64,7 +65,7 @@ var projects = {
 	"projects": [
 		{
 			"title": "Create a Movie Website",
-			"datesWorked": "August 2017",
+			"dates": "August 2017",
 			"description": "Use code create static webpage " +
 			"Nanodegree.",
 			"images": ["images/movie.png"],
@@ -101,28 +102,26 @@ bio.display = function(){
 		}
 	}
 
-	for(var i = 0; i < formattedContactInfo.length; i++) {
-		$("#topContacts").append(formattedContactInfo[i]);
-		$("#footerContacts").append(formattedContactInfo[i]);
+	for(var j = 0; j < formattedContactInfo.length; j++) {
+		$("#topContacts").append(formattedContactInfo[j]);
+		$("#footerContacts").append(formattedContactInfo[j]);
 	}
 
 };
 
-function displayWork() {
+work.display: function() {;
 
 	if(work.jobs.length > 0) {
 
-		$("#workExperience").append(HTMLworkStart);
-
-		for(var i in work.jobs) {
+		for (var i = 0, len = work.jobs.length; i < len; i++) {
 			var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
 			var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
 			var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[i].location);
 			var formattedDatesWorked = HTMLworkDates.replace("%data%", work.jobs[i].datesWorked);
 			var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
-
 			var formattedEmployerWorkTitle = formattedEmployer + formattedWorkTitle;
 
+			$("#workExperience").append(HTMLworkStart);
 			$(".work-entry:last").append(formattedEmployerWorkTitle);
 			$(".work-entry:last").append(formattedWorkLocation);
 			$(".work-entry:last").append(formattedDatesWorked);
@@ -179,7 +178,7 @@ education.display = function() {
 
 		if(education.onlineCourses.length > 0) {
 			$("#education").append(HTMLonlineClasses);
-			for(var i = 0; i < education.onlineCourses.length; i++) {
+			for(var n = 0; n < education.onlineCourses.length; n++) {
 				$("#education").append(HTMLschoolStart);
 				var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title).replace("#", education.onlineCourses[i].url);
 				var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
@@ -197,7 +196,6 @@ education.display = function() {
 
 education.display();
 bio.display();
-displayWork();
+work.display();
 projects.display();
-education.display();
 $('#mapDiv').append(googleMap);
