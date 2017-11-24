@@ -124,11 +124,10 @@ work.display = function() {
 
 projects.display = function() {
 
-projects.projects.forEach(function(project) {
-        $("#projects").append(HTMLprojectStart.replace("%data%",project));
-			}
-)}
-
+projects.projects.forEach(function(project) { 
+        $("#projects").append(HTMLprojectStart.replace("%data%",project));			
+		)};
+				
 
 			var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title).replace("#", projects.projects[i].url);
 			var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[i].datesWorked);
