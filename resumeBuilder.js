@@ -8,7 +8,7 @@ var bio = {
 		"location": "Orlando, Florida, United States"
 	},
 
-	"WelcomeMessage": "I am a Senior-Technical Consulting Engineer located in Orlando, Florida. Seeking a challenging position in which I can maximize my skills "+
+	"welcomeMessage": "I am a Senior-Technical Consulting Engineer located in Orlando, Florida. Seeking a challenging position in which I can maximize my skills "+
 			  "to form a mutually beneficial relationship with a telecommunications provider .",
 	"skills": ["HTML", "CSS", "JavaScript","Git", "Python", "Microsoft Office",
           "Project Management" , "Network Operations", "Technology/IT Consulting",
@@ -21,7 +21,7 @@ bio.display = function(){
 	var formattedName = HTMLheaderName.replace("%data%", bio.name);
 	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 	var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
-	var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.WelcomeMessage);
+	var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
 
 	var formattedContactInfo = [];
@@ -35,6 +35,7 @@ bio.display = function(){
 	$("#header").prepend(formattedName);
 	$("#header").append(formattedBioPic);
 	$("#header").append(formattedWelcomeMessage);
+	$("#header").append(HTMLskillsStart);
 
 	bio.skills.forEach(function(skill) {
         $("#skills").append(HTMLskills.replace("%data%",skill));
@@ -56,7 +57,7 @@ var work = {
 			"dates": "May 2001 - Current",
 			"description": "I design, configure and implement customer network infrastructure ."+
 				"I have technical network knowledge as well as the ability to work with sales to "+
-				"resolve problems or respond to special customer requests. I am also responsible for "+
+				"resolve problems and respond to special customer requests. I am also responsible for "+
 				"change proposals based on specialized applications. "
 
 		},
@@ -78,7 +79,7 @@ var education = {
 			"dates": "2004 - 2008",
 			"location": "Orlando, Florida, United States",
 			"degree": "BSBM",
-			"majors": ["Business Management"],
+			"major": ["Business Management"],
 	    "url": "www.phoenix.edu"
 		},
 
@@ -115,7 +116,7 @@ work.display = function() {
 			var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
 			var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
 			var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[i].location);
-			var formattedDatesWorked = HTMLworkDates.replace("%data%", work.jobs[i].datesWorked);
+			var formattedDatesWorked = HTMLworkDates.replace("%data%", work.jobs[i].dates);
 			var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
 			var formattedEmployerWorkTitle = formattedEmployer + formattedWorkTitle;
 
@@ -127,14 +128,13 @@ work.display = function() {
 
 
 projects.display = function() {
+
 		$("#projects").append(HTMLprojectStart.replace("%data%",projects));
 		projects.projects.forEach(function(project) {
 			var formattedProjectTitle = HTMLprojectTitle.replace("%data%", project.title).replace("#", project.url);
-			var formattedProjectDates = HTMLprojectDates.replace("%data%", project.datesWorked);
+			var formattedProjectDates = HTMLprojectDates.replace("%data%", project.dates);
 			var formattedProjectDescription = HTMLprojectDescription.replace("%data%", project.description);
-			$(".project-entry:last").append(formattedProjectTitle);
-			$(".project-entry:last").append(formattedProjectDates);
-			$(".project-entry:last").append(formattedProjectDescription);
+			$(".project-entry:last").append(formattedProjectTitle, formattedProjectDates, formattedProjectDescription);
 
 			project.images.forEach(function(image){
 					var formattedProjectImage = HTMLprojectImage.replace("%data%", image);
@@ -143,21 +143,17 @@ projects.display = function() {
 		});
 };
 
-projects.display();
 
 education.display = function() {
 		$("#education").append(HTMLschoolStart.replace("%data%",education));
 		education.schools.forEach(function(school) {
 			var formattedSchoolName = HTMLschoolName.replace("%data%", school.name).replace("#", school.url);
 			var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", school.degree);
-			var formattedSchoolDates = HTMLschoolDates.replace("%data%", school.datesAttended);
+			var formattedSchoolDates = HTMLschoolDates.replace("%data%", school.dates);
 			var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", school.location);
 			var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", school.major);
 
-			$(".education-entry:last").append(formattedSchoolName + formattedSchoolDegree);
-			$(".education-entry:last").append(formattedSchoolDates);
-			$(".education-entry:last").append(formattedSchoolLocation);
-			$(".education-entry:last").append(formattedSchoolMajor);
+			$(".education-entry:last").append(formattedSchoolName + formattedSchoolDegree,formattedSchoolDates, formattedSchoolLocation, formattedSchoolMajor);
 
 		});
 
@@ -167,12 +163,11 @@ education.display = function() {
 				$("#education").append(HTMLschoolStart);
 				var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[n].title).replace("#", education.onlineCourses[n].url);
 				var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[n].school);
-				var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[n].completed);
+				var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[n].dates);
 				var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[n].url).replace("#", education.onlineCourses[n].url);
 
-				$(".education-entry:last").append(formattedOnlineTitle + formattedOnlineSchool);
-				$(".education-entry:last").append(formattedOnlineDates);
-				$(".education-entry:last").append(formattedOnlineURL);
+				$(".education-entry:last").append(formattedOnlineTitle + formattedOnlineSchool, formattedOnlineDates, formattedOnlineURL);
+				
 			}
 		}
 };
@@ -182,4 +177,5 @@ bio.display();
 work.display();
 projects.display();
 $('#mapDiv').append(googleMap);
+
 
